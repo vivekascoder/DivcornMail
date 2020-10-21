@@ -1,0 +1,96 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{% static 'tailwind.min.css' %}" rel="stylesheet">
+    <title>Portfolio</title>
+</head>
+
+<body>
+    <nav class="bg-red-500 p-3 flex justify-between xl:px-64 items-center">
+        <h1 class="text-xl font-bold uppercase text-gray-100 tracking-wider cursor-pointer select-none">Divcorn Mail</h1>
+        <a href="#!"
+            class="px-3 py-2 bg-red-500 rounded inline-block border border-gray-100 uppercase text-gray-100 text-xs font-semibold hover:bg-red-700" id="btn">Login Now</a>
+    </nav>
+    <div class="flex justify-between items-center xl:px-64 mt-16">
+        <div class="w-1/2">
+            <h1 class="text-6xl font-bold text-red-600">Divcorn Mail Service.</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti nobis consectetur facilis expedita
+                atque reprehenderit numquam vel ad. Nam minima voluptatibus mollitia esse unde ex magni, dolorum enim
+                inventore distinctio!
+            </p>
+            <div class="inline-block mt-8">
+                <form action="{% url 'join' %}" method="post">
+                    {% csrf_token %}
+                    <input class="p-1 px-2 pl-4 font-semibold text-blue-500 border-solid border-2 border-blue-400 placeholder-blue-400 rounded-l-md focus:outline-none bg-red-gray-500 float-left text-lg text-semibold focus:shadow-outline" type="email" name="email" id="email" placeholder="you@example.com" autocomplete="off" required>
+                    <input class="px-4 border-solid border-2 border-blue-400 rounded-r-md focus:outline-none py-1 text-white bg-blue-400 text-lg font-semibold uppercase focus:shadow-outline cursor-pointer" type="submit" value="Join Now">
+                </form>
+            </div>
+        </div>
+        <img class="w-1/3 h-auto" src="{% static 'undraw_Email_campaign_re_m6k5.png' %}" alt="">
+
+    </div>
+
+    <div id="bg" class="absolute bg-black bg-opacity-75 inset-0 hidden"></div>
+    <div id="dialog-box" style="width: 30rem; top: 4rem; left: 50%; transform: translateX(-50%);"
+        class="shadow-xl bg-white rounded-lg overflow-hidden absolute">
+        <div class="px-3 py-2 bg-red-500">
+            <h4 class="text-xl text-white font-semibold text-center">Login 🔑 and be at 🏠 Now.</h4>
+        </div>
+        <div class="p-3">
+            <!-- <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque nesciunt sint ut amet, iusto adipisci
+                quod beatae? Vitae dignissimos rem facilis? Sit fugit maxime, officiis iste, dolor quis pariatur
+                omnis ipsum reprehenderit iure nemo non molestiae veniam? Necessitatibus, atque nulla?</p> -->
+            <form action="#!" method="post">
+                <div class="flex items-center justify-around my-4 ">
+                    <div class="w-1/3">
+                        <label class="block font-bold uppercase text-right mr-4 tracking-wide text-gray-600" for="username">Username:</label>
+                    </div>
+                    <div class="w-2/3">
+                        <input class="w-full px-2 py-1 text-lg text-gray-600 font-semibold appearance-none rounded bg-gray-200 border-2 border-gray-200 focus:outline-none focus:bg-white focus:border-red-500 " type="text" name="username" placeholder="username">
+                    </div>
+                </div>
+                <div class="flex items-center justify-around mb-4">
+                    <div class="w-1/3">
+                        <label class="block font-bold uppercase text-right mr-4 tracking-wide text-gray-600" for="password">Password:</label>
+                    </div>
+                    <div class="w-2/3">
+                        <input class="w-full px-2 py-1 text-lg text-gray-600 font-semibold  appearance-none rounded bg-gray-200 border-2 border-gray-200 focus:outline-none focus:bg-white focus:border-red-500 " type="password" name="password" placeholder="************">
+                    </div>
+                </div>
+                <div>
+                    <input class="ml-10 px-5 py-1 font-semibold uppercase cursor-pointer tracking-wide rounded bg-red-500 text-white" type="submit" value="Log In">
+                </div>
+            </form>
+        </div>
+        <div class="px-3 py-2 bg-red-500 flex flex-row-reverse">
+            <a href="#!" id="close"
+                class="relative px-3 py-2 pr-8 bg-red-500 border-2 border-white rounded inline-block uppercase text-gray-100 text-xs font-semibold hover:bg-red-600">
+                <svg class="w-6 h-5 absolute right-0  my-auto  mr-2" xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+                <span>Close</span>
+            </a>
+        </div>
+    </div>
+
+    <script>
+        var dialog = document.querySelector("#dialog-box");
+        var bg = document.querySelector("#bg");
+        dialog.classList.add("hidden")
+        document.querySelector("#close").addEventListener("click", () => {
+            dialog.classList.add("hidden")
+            bg.classList.add("hidden")
+        })
+        document.querySelector("#btn").addEventListener("click", () => {
+            bg.classList.remove("hidden")
+            dialog.classList.remove("hidden")
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,59 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{% static 'tailwind.min.css' %}" rel="stylesheet">
+    <title>Mail</title>
+</head>
+<body class="flex items-center justify-center h-screen ">
+    <div style="width: 30rem;" class="bg-gray-200 rounded-lg shadow-xl overflow-hidden">
+        <div class="p-3 bg-red-500 font-semibold uppercase text-xl text-white text-center">
+            <h1>Divcorn Mail List</h1>
+        </div>
+        <div id="main-content" class="p-3">
+            <!-- <h1>Hello World</h1>
+            <hr>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur sit id ut. Porro quaerat autem neque totam! Laudantium ullam officiis quo dolorem maxime dolorum id explicabo recusandae doloribus culpa. Unde.</p>
+            <h3>Given Points</h3>
+            <ul>
+                <li><em>Lorem</em>, ipsum dolor.</li>
+                <li>Lorem ipsum dolor sit amet.</li>
+                <li>Lorem ipsum dolor sit amet consectetur.</li>
+            </ul>
+
+            <blockquote>
+                <p><strong>Lorem</strong> ipsum, dolor sit amet consectetur adipisicing elit. Harum aut iure iste non mollitia cumque fugiat recusandae sequi praesentium quia!</p>
+            </blockquote>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur sit id ut. Porro quaerat autem neque totam! Laudantium ullam officiis quo dolorem maxime dolorum id explicabo recusandae doloribus culpa. Unde.</p>
+            <code>
+                python3 manage.py runserver
+            </code>
+            <a href="http://vivekascoder.me">http://vivekascoder.me</a> -->
+            {{message.html_message|safe}}
+        </div>
+        <div class="p-3 bg-red-500  uppercase underline text-xs text-white text-center">
+            <a href="#!">Unsubscribe the mailing list</a>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $("#main-content h1").addClass("text-4xl font-bold text-gray-700")
+        $("#main-content h2").addClass("text-3xl font-bold text-gray-700")
+        $("#main-content h3").addClass("text-2xl font-bold text-gray-700")
+        $("#main-content h4").addClass("text-xl font-bold text-gray-700")
+        $("#main-content h1").addClass("text-lg font-bold text-gray-700")
+        $("#main-content a").addClass("text-lg text-blue-600 hover:underline visited:text-purple-600 inline-block my-2")
+        $("#main-content ul").addClass("list-disc list-inside my-2")
+        $("#main-content ul li").addClass("text-gray-600")
+        $("#main-content ul li ul").addClass("list-disc list-inside my-2 ml-4")
+        $("#main-content p").addClass("text-gray-600 my-2 leading-5")
+        $("#main-content code").addClass("bg-gray-400 text-gray-800 p-3 block rounded-md my-1")
+        $("#main-content hr").addClass("border-solid border-t-3 border-gray-700")
+        $("#main-content blockquote").addClass("bg-yellow-200 border-solid border-l-4 border-yellow-500 pl-2 pr-1 py-1")
+
+    </script>
+</body>
+</html>
